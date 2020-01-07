@@ -1,28 +1,52 @@
+
+
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>APES</span>
+        <span class="font-weight-light">KARDEX</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        text
+        href=""        
+      >
+        <span class="mr-2">Prueba de concepto</span>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>     
+        <Rtable />
+        
+        <!--<div class="text-center">
+          <v-btn color="primary" @click="test()" >Button</v-btn>
+        </div>-->
+
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld';
+//import Loading from './components/Loading';
+import Rtable from './components/Rtable';
+
+
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    //Loading,
+    Rtable,
+  },
+  data: () => ({
+    //
+  }),
+  methods:{
+    test(){
+      this.$store.dispatch('setFetching', true)
+    }
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
